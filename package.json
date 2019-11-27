@@ -1,0 +1,24 @@
+{
+  "name": "bulma-graphs",
+  "version": "0.0.1",
+  "description": "another Bulma CSS extension that displays graphs on your website.",
+  "main": "graphs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frizzant/bulma-graphs.git"
+  },
+  "keywords": [
+    "Bulma",
+    "extension",
+    "graphs"
+  ],
+  "author": "Erin McGowan, www.calmarsolutions.ch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frizzant/bulma-graphs/issues"
+  },
+  "homepage": "https://github.com/frizzant/bulma-graphs#readme"
+}

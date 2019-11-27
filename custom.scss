@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+#graphs-container {
+
+}
+
+// Bulma CSS Default Media Queries
+//
+//           768         1024                1216         1408
+//  '     '     '     '     '     '     '     '     '     '     '     '
+//  <---------^------------^------------------^-------------^------------->
+//   mobile      tablet         desktop         widescreen      fullhd
+
+@media screen and (max-width: 1408px) {}
+@media screen and (max-width: 1216px) {}
+@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 768px) {}
+
+// END Media Queries END
