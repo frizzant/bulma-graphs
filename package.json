@@ -1,7 +1,7 @@
 {
   "name": "bulma-graphs",
   "version": "0.0.1",
-  "description": "another Bulma CSS extension that displays graphs on your website.",
+  "description": "Translates data into a visually pleasing graph using Bulma, but without dependence on Bulma.",
   "main": "graphs.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
