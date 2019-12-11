@@ -14,13 +14,20 @@ By default the box is at the bottom-right corner of the website.
 It will stop cycling if you hover/touch over the element, or disable it in the settings.
 [Github Preview](https://frizzant.github.io/bulma-graphs/)
 
-![alt text](/images/graphs.jpg)
+**Horizontal**
+
+![alt text](/images/horizontal-preview.png)
+
+**Vertical**
+
+![alt text](/images/vertical-preview.png)
 
 ## Why Do I Need It? <a name="why"></a>
 
-placeholder
+To display your statistics.
 
 ## Dependencies <a name="dependencies"></a>
+
 Since the custom.sass/custom.css is built upon the **Bulma CSS Framework**,
 it is recommended to use this as your base. However if you want to write
 your own CSS, go ahead.
@@ -30,18 +37,22 @@ if you keep the necessary ids/classes and HTML structure.
 Going Vanilla JS, **no JQuery needed**! Lightweight and totally free of any JS frameworks.
 
 Javascript version: **ES6**.
-_(rewriting it for crossbrowser compatibility and IE should be pretty simple.)_
+_(rewriting it for crossbrowser compatibility is simple.)_
 
 ## Normal Setup <a name="setup"></a>
 
 The recommended structure is the following:
 
 ```html
-<div class="graphs-container">
-
+<div class="graphs-container" data-title="Horizontal Graph">
+    <div class="data-container column is-full columns is-mobile is-size-7 has-text-white is-marginless">
+        <div data-title="One" data-value="10"></div>
+        <div data-title="Two" data-value="50"></div>
+        <div data-title="Three" data-value="100"></div>
+    </div>
 </div>
 ```
-
+**IMPORTANT data-container classes**: `is-vertical-graph` for vertical, `columns` for horizontal.
 
 ## via npm <a name="npm-setup"></a>
 
@@ -51,13 +62,17 @@ The recommended structure is the following:
 
 Currently you can tweak the JS settings directly within the `graphs.js` file.
 These are the default values.
+
 ```javascript
-let graphs = {
-    // more stuff here
+let graphs = { // initialize object with settings
     settings: {
-        autoGenerate: true,     // true | false 
-        rotate: true,           // true | false
-        rotateTimeout: 3000,    // number in ms          
+        animation: true,            // true | false
+        autoGenerate: true,         // true | false
+        containerItemSelector: '.graphs-container .data-container div',
+        containerSelector: '.graphs-container',
+        errorMessages: true,        // true | false
+        heightMultiplicator: 3,     // scales in pixel
+        widthMultiplicator: 1,      // scales in % (percentage)
     },
 };
 ```
@@ -67,9 +82,18 @@ let graphs = {
 This is the minimal structure needed to keep the script running how it was supposed to:
 
 ```HTML
-<div id="framebox-container">
-    
+<div class="graphs-container" data-title="">
+    <div class="data-container is-vertical-graph is-multiline">
+        <div data-title="" data-value="10"></div>
+        <div data-title="" data-value="50"></div>
+        <div data-title="" data-value="100"></div>
+    </div>
 </div>
 ```
+**IMPORTANT data-container classes**: `is-vertical-graph` for vertical, `columns` for horizontal.
+
+`data-title`'s: Are used to generate the titles. They are **not required**.
+
+Make as many of these as you want on your page.
 
 I think we are done here.

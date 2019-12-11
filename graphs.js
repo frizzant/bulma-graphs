@@ -11,7 +11,6 @@ graphs = () => {
                     heightMultiplicator: 3, // scales in pixel
                     widthMultiplicator: 1, // scales in % (percentage)
                 },
-
             };
             graphs.container = { // dependent on settings before they can be set
                 list: document.querySelectorAll(graphs.settings.containerSelector),
