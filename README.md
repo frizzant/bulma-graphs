@@ -7,6 +7,7 @@
 - [Settings](#settings)
 - [Minimal Structure](#minimal)
 
+Like it? Have a look at [Bulma Framebox](https://github.com/frizzant/bulma-framebox).
 
 A dynamic fixed box to display news/hints/ads in a Bulma CSS fashion.
 
