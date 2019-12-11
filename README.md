@@ -50,6 +50,9 @@ The recommended structure is the following:
 </div>
 ```
 **IMPORTANT data-container classes**: `is-vertical-graph` for vertical, `columns` for horizontal.
+`data-value`: this represents the _pixels_|_percentage_ of the visualized bar. Just try it.
+I recommend staying within the `0`-`100` range, so it will work on _horizontal_ and _vertical_ graphs by default.
+Need it larger? Increase the `heightMultiplicator`|`widthMultiplicator`.
 
 ## via npm <a name="npm-setup"></a>
 
@@ -80,7 +83,7 @@ This is the minimal structure needed to keep the script running how it was suppo
 
 ```HTML
 <div class="graphs-container" data-title="">
-    <div class="data-container is-vertical-graph is-multiline">
+    <div class="data-container is-vertical-graph|columns">
         <div data-title="" data-value="10"></div>
         <div data-title="" data-value="50"></div>
         <div data-title="" data-value="100"></div>

@@ -3,9 +3,13 @@
 .graphs-container {
   .data-container {
     max-width: 100%;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
     align-items: flex-end;
 
     & > div {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
       flex: 1;
       //margin: 0 .5rem;
       padding: 0;
@@ -58,8 +62,12 @@
           position: absolute;
           bottom: -13px;
           left: 5px;
-          //text-align: left;
+
+          -webkit-transform: rotate(-90deg);
+          -ms-transform: rotate(-90deg);
           transform: rotate(-90deg);
+          -webkit-transform-origin: top left;
+          -ms-transform-origin: top left;
           transform-origin: top left;
 
           text-shadow: 0px 0px 2px #000000;
