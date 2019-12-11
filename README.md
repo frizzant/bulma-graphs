@@ -14,11 +14,7 @@ By default the box is at the bottom-right corner of the website.
 It will stop cycling if you hover/touch over the element, or disable it in the settings.
 [Github Preview](https://frizzant.github.io/bulma-graphs/)
 
-**Horizontal**
-
 ![alt text](/images/horizontal-preview.png)
-
-**Vertical**
 
 ![alt text](/images/vertical-preview.png)
 
