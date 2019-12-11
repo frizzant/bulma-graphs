@@ -1,4 +1,4 @@
-# bulma-framebox
+# bulma-graphs
 
 - [Why Do I need It?](#why)
 - [Dependencies](#dependencies)
