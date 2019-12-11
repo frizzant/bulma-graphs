@@ -1,6 +1,6 @@
 {
   "name": "bulma-graphs",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Translates data into a visually pleasing graph using Bulma, but without dependence on Bulma.",
   "main": "graphs.js",
   "scripts": {

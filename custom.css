@@ -6,7 +6,7 @@
   flex: 1;
   padding: 0;
   text-align: center;
-  background-color: red;
+  background-color: #0074D9;
 }
 .graphs-container .data-container.is-vertical-graph div {
   margin: 0.25rem 0;

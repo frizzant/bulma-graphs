@@ -3,10 +3,11 @@ graphs = () => {
 // ---
             let graphs = { // initialize object with settings
                 settings: {
-                    containerSelector: '.graphs-container',
-                    containerItemSelector: '.graphs-container .data-container div',
-                    autoGenerate: true,
                     animation: true,
+                    autoGenerate: true,
+                    containerItemSelector: '.graphs-container .data-container div',
+                    containerSelector: '.graphs-container',
+                    errorMessages: true,
                     heightMultiplicator: 3, // scales in pixel
                     widthMultiplicator: 1, // scales in % (percentage)
                 },
@@ -21,7 +22,6 @@ graphs = () => {
 // ---
 // --- END Variables
     let main = () => {
-        console.log(graphs.container.list);
 
         let generateHTMLContainers = () => {
             return new Promise((resolve) => { // setting up a PROMISE
@@ -43,12 +43,9 @@ graphs = () => {
         };
         let generateHTMLItems = () => {
             return new Promise((resolve) => { // setting up a PROMISE
-                let rotateBase = 0;
-                let rotateFraction = 360 / graphs.container.items.list.length;
 
                 let i = 0;
                 for (let item of graphs.container.items.list) {
-                    // console.log(item.dataset.title);
                     if (item.dataset.title.length >= 1) {
                         item.insertAdjacentHTML('afterbegin', `<p>${item.dataset.title}</p>`);
                     }
@@ -63,9 +60,6 @@ graphs = () => {
                         item.style.height = graphs.settings.heightMultiplicator * item.dataset.value + 'px';
                     }
 
-                    item.style.filter = `hue-rotate(${rotateBase}deg)`;
-                    rotateBase = rotateBase + rotateFraction;
-
                     i++;
                     if (i === graphs.container.items.list.length) {
                         resolve();
@@ -73,13 +67,66 @@ graphs = () => {
                 }
             });
         };
-        let setup = () => {
-            console.log('STUFF HAPPENING');
+        // let setup = () => {
+        //     return new Promise((resolve) => { // setting up a PROMISE
+        //         console.log('STUFF HAPPENING');
+        //         resolve();
+        //     });
+        // };
+        let generateHues = () => {
+            return new Promise((resolve) => { // setting up a PROMISE
+                for (let container of graphs.container.list) {
+                    let children = container.querySelectorAll('.data-container div');
+
+                    let countItems = children.length;
+                    let rotateBase = 0;
+                    let rotateFraction = 360 / countItems;
+
+                    for (let item of children) {
+                        item.style.filter = `hue-rotate(${rotateBase}deg)`;
+                        rotateBase = rotateBase + rotateFraction;
+                    }
+
+                }
+                resolve();
+            });
+
+        };
+        let generateWarnings = () => {
+            // vertical graph has unlimited items
+            // horizontal graph has a max of 12 items to keep it pretty
+
+            return new Promise((resolve) => { // setting up a PROMISE
+                if (graphs.settings.errorMessages === true) {
+
+                    for (let container of graphs.container.list) {
+                        let isVertical = false;
+
+                        for (let item of container.children) { // check if there is a child with is-vertical-graph class and set variable
+                            if (item.classList.contains('is-vertical-graph')) {
+                                isVertical = true;
+                            }
+                        }
+
+                        if (isVertical === false) { // add the notification if there is no vertical class on the container.
+                            let children = container.querySelectorAll('.data-container div');
+                            let countChildren = children.length;
+
+                            if (countChildren > 12) {
+                                container.insertAdjacentHTML('afterend', '<div class="notification has-background-warning"><p>You have more then <strong>12</strong> horizontal graph-items. This will cause viewing-glitches on mobile. <br><span class="is-size-7">(disable warnings in the <strong>graphs.js</strong>-file by setting <strong>errorMessages</strong> to <strong>false</strong>.)</span></p> </h1></div>')
+                            }
+                        }
+                    }
+                }
+            resolve();
+            });
         };
 
         generateHTMLContainers()
             .then(generateHTMLItems)
-            .then(setup);
+            // .then(setup)
+            .then(generateHues)
+            .then(generateWarnings);
 
     };
     main();
