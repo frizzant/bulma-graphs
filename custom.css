@@ -20,6 +20,7 @@
   text-align: left;
 }
 .graphs-container .data-container.columns > div {
+  position: relative;
   margin: 0 0.25rem;
 }
 .graphs-container .data-container.columns > div:first-child {

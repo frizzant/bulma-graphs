@@ -1,23 +1,25 @@
+'use strict';
+let graphs;
 graphs = () => {
 // --- Variables + Objects
 // ---
-            let graphs = { // initialize object with settings
-                settings: {
-                    animation: true,
-                    autoGenerate: true,
-                    containerItemSelector: '.graphs-container .data-container div',
-                    containerSelector: '.graphs-container',
-                    errorMessages: true,
-                    heightMultiplicator: 3, // scales in pixel
-                    widthMultiplicator: 1, // scales in % (percentage)
-                },
-            };
-            graphs.container = { // dependent on settings before they can be set
-                list: document.querySelectorAll(graphs.settings.containerSelector),
-                items: {
-                    list: document.querySelectorAll(graphs.settings.containerItemSelector),
-                }
-            };
+    let graphs = { // initialize object with settings
+        settings: {
+            animation: true,
+            autoGenerate: true,
+            containerItemSelector: '.graphs-container .data-container div',
+            containerSelector: '.graphs-container',
+            errorMessages: true,
+            heightMultiplicator: 3, // scales in pixel
+            widthMultiplicator: 1, // scales in % (percentage)
+        },
+    };
+    graphs.container = { // dependent on settings before they can be set
+        list: document.querySelectorAll(graphs.settings.containerSelector),
+        items: {
+            list: document.querySelectorAll(graphs.settings.containerItemSelector),
+        }
+    };
 // ---
 // --- END Variables
     let main = () => {
